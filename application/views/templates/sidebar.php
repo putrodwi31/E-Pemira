@@ -2,10 +2,10 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <img src="<?= base_url(); ?>assets/img/klogo2.png" alt="" width="30px" height="30px" style="margin-top: -5px; margin-right: 10px;">
-            <a href="<?= base_url('admin'); ?>" style="font-size: large; color: #093d77;">E-PEMIRA</a>
+            <a href="<?= base_url(); ?>" style="font-size: large; color: #093d77;">E-PEMIRA</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="<?= base_url('admin'); ?>">EP</a>
+            <a href="<?= base_url(); ?>">EP</a>
         </div>
         <ul class="sidebar-menu">
 
