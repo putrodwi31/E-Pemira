@@ -10,3 +10,7 @@ DB_DRIVER=""
 # Koneksi SMTP Gmail
 SMTP_EMAIL=""
 SMTP_PASS=""
+
+Akun Untuk Login Admin
+NIM         = BEMBIU
+KODE AKSES  = QWERTY
