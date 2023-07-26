@@ -338,7 +338,7 @@ class Admin extends CI_Controller
 			$mail->isSMTP();                                            			//Send using SMTP
 			$mail->Host       = 'smtp.gmail.com';                     				//Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   			//Enable SMTP authentication
-			$mail->Username   = $_ENV['SMTP_EMAIL'];                	     	//SMTP username
+			$mail->Username   = $_ENV['SMTP_EMAIL'];                	     		//SMTP username
 			$mail->Password   = $_ENV['SMTP_PASS'];                               	//SMTP password
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            			//Enable implicit TLS encryption
 			$mail->Port       = 465; 												//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
@@ -348,11 +348,9 @@ class Admin extends CI_Controller
 				$email = $query['email'];
 				$kode_akses2 = $query['kode_akses'];
 
-				$mail->setFrom('putrodwimly@gmail.com', 'BEM BIU'); 				//Add a recipient
+				$mail->setFrom($_ENV['SMTP_EMAIL'], 'BEM BIU'); 					//Add a recipient
 				$mail->addAddress($email);											//Set email receipt
 				$mail->isHTML(true);                                  				//Set email format to HTML
-
-
 
 				$mail->Subject = "BEM BIU (KODE AKSES - E-PEMIRA)";
 				$body2 = '<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
