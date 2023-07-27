@@ -59,7 +59,7 @@
                                                       <td style="text-transform: capitalize;"><?php echo $dn['nama_mhs']; ?></td>
                                                       <td><span class="badge badge-warning"><b><?php echo $dn['status']; ?></b></span></td>
                                                       <td><?php echo $dn['email']; ?></td>
-                                                      <td><a class="btn btn-danger btn-circle" onclick="return confirm('Yakin hapus data ini !!!')" href="hapus_dpt.php?nim=<?php echo $dn['nim']; ?>">Hapus</a>
+                                                      <td><a class="btn btn-danger btn-circle text-white" id="hapusPaslon<?= $dn['nim']; ?>" onclick="getDel(<?= $dn['nim']; ?>)" data-link="<?= base_url() . 'admin/hapus_dpt/' . $dn['nim']; ?>" data-ntipe='DPT dengan NIM'>Hapus</a>
                                                       </td>
                                                   </tr>
                                               <?php } ?>

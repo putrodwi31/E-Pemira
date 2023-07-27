@@ -50,17 +50,36 @@
 
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="<?= base_url('old_assets/'); ?>vendors/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/animate.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/loader_main.css">
 
     <!-- Favicon  -->
     <link rel="icon" href="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" />
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">
+    <div id="spinner">
+        <div class=" table">
+            <div class="table-cell">
+                <div class="logo-load visibility-hidden animated flipInY">
+                    <img src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" class="" width="150px" alt="" />
+                </div>
+
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">
         <div class="container">
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" alt="" class="i-home__img">
+            <a class="navbar-brand logo-image" href="<?= base_url(); ?>"><img src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" alt="" class="i-home__img">
             </a>
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
@@ -145,7 +164,18 @@
         scale: 1.1
     })
 </script>
-
+<script>
+    const loader = document.getElementById("spinner");
+    window.onload = function() {
+        setTimeout(function() {
+            // loader.style.opacity = "0";
+            setTimeout(function() {
+                loader.style.visibility = "hidden";
+            }, 500);
+            $('#spinner').addClass("animated fadeOut");
+        }, 2000);
+    }
+</script>
 <!--=============== SCROLL REVEAL ===============-->
 <script src="<?= base_url('old_assets/'); ?>assets/js/scrollreveal.min.js"></script>
 

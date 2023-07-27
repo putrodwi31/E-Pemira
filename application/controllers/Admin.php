@@ -44,7 +44,7 @@ class Admin extends CI_Controller
 			$this->load->view('templates/footer', $data);
 		} else {
 			date_default_timezone_set('Asia/jakarta');
-			$waktu = date('H:i:sa');
+			$waktu = date('h:i:s A, d F Y');
 			$nim = $this->session->userdata('nim');
 			$nomor_paslon = $this->input->post('nomor_paslon');
 
@@ -261,6 +261,16 @@ class Admin extends CI_Controller
 		$this->session->set_flashdata('toast', "<script>iziToast.success({
 			title: 'Berhasil!',
 			message: '$berhasil DPT berhasil ditambahkan',
+			position: 'topRight'
+		  });</script>");
+		redirect('admin/dpt');
+	}
+	public function hapus_dpt($nim)
+	{
+		$this->db->query("DELETE FROM tbl_dpt WHERE nim='$nim'");
+		$this->session->set_flashdata('toast', "<script>iziToast.success({
+			title: 'Berhasil!',
+			message: 'Data DPT $nim berhasil dihapus',
 			position: 'topRight'
 		  });</script>");
 		redirect('admin/dpt');

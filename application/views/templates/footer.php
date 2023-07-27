@@ -50,7 +50,7 @@
         const getDel = document.getElementById("hapusPaslon" + id)
         swal({
             title: 'Apakah anda yakin?',
-            text: 'Apakah anda ingin menghapus paslon no urut ' + id + ' ?',
+            text: 'Apakah anda ingin menghapus ' + getDel.dataset.ntipe + ' ' + id + ' ?',
             icon: 'warning',
             buttons: true,
             dangerMode: true,

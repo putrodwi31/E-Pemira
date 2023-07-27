@@ -80,7 +80,7 @@
                                           <tr>
                                               <td><?php echo $d['nm_paslon_ketua']; ?></td>
                                               <td><?php echo $d['no_urut']; ?></td>
-                                              <td><a class="btn btn-danger btn-circle text-white" id="hapusPaslon<?= $d['no_urut']; ?>" onclick="getDel(<?= $d['no_urut']; ?>)" data-link="<?= base_url() . 'admin/hapus_datapaslon/' . $d['no_urut']; ?>">Hapus</a>
+                                              <td><a class="btn btn-danger btn-circle text-white" id="hapusPaslon<?= $d['no_urut']; ?>" onclick="getDel(<?= $d['no_urut']; ?>)" data-link="<?= base_url() . 'admin/hapus_datapaslon/' . $d['no_urut']; ?> " data-ntipe='Paslon No Urut'>Hapus</a>
                                               </td>
                                           </tr>
                                       <?php } ?>

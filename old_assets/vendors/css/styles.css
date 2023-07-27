@@ -305,9 +305,9 @@ a:hover {
 }
 
 .btn-solid-lg:hover {
-  border: 1px solid #093d77;
+  border: 1px solid white;
   background-color: transparent;
-  color: #093d77;
+  color: white;
   text-decoration: none;
 }
 

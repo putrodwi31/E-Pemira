@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jul 2023 pada 09.29
+-- Waktu pembuatan: 27 Jul 2023 pada 07.05
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -84,6 +84,7 @@ CREATE TABLE `tbl_akses` (
 --
 
 INSERT INTO `tbl_akses` (`nim`, `kode_akses`, `level`) VALUES
+('2019320021', '5LCM6L', 'user'),
 ('2021310028', '45X1ZG', 'user'),
 ('BEMBIU', 'QWERTY', 'admin');
 
@@ -98,7 +99,7 @@ CREATE TABLE `tbl_dpt` (
   `nama_mhs` varchar(100) NOT NULL,
   `status` varchar(30) NOT NULL,
   `email` text NOT NULL,
-  `waktu` varchar(15) NOT NULL
+  `waktu` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -106,10 +107,9 @@ CREATE TABLE `tbl_dpt` (
 --
 
 INSERT INTO `tbl_dpt` (`nim`, `nama_mhs`, `status`, `email`, `waktu`) VALUES
-('2019320021', 'Muhammad Aldisyah Rahman', 'Belum Memilih', 'test@gmail.com', '-'),
-('2021310019', 'Joko Susilo Wati', 'Belum Memilih', 'joko@gmail.com', '-'),
-('2021310028', 'Putro Dwi Mulyo', 'Belum Memilih', 'putrodwi31@gmail.com', '11:14:08am'),
-('BEMBIU', 'Administrator', 'Sudah Memilih', '', '14:14:54pm');
+('2019320021', 'Muhammad Aldisyah Rahman', 'Belum Memilih', 'xbhscbhavd@gmail.com', '-'),
+('2021310028', 'Putro Dwi Mulyo', 'Belum Memilih', 'putrodwi31@gmail.com', '15:41:55pm'),
+('BEMBIU', 'Administrator', 'Belum Memilih', '', '09:43:35 PM, 26 July 2023');
 
 -- --------------------------------------------------------
 
@@ -121,14 +121,6 @@ CREATE TABLE `tbl_paslon` (
   `nim` varchar(10) NOT NULL,
   `nomor_paslon` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_paslon`
---
-
-INSERT INTO `tbl_paslon` (`nim`, `nomor_paslon`) VALUES
-('2021310028', 2),
-('BEMBIU', 1);
 
 -- --------------------------------------------------------
 
@@ -186,8 +178,8 @@ CREATE TABLE `user_token` (
 --
 
 INSERT INTO `user_token` (`id`, `nim`, `token`) VALUES
-(1, 'BEMBIU', 'FGCE6npfdB'),
-(2, '2021310028', 'QEV0gkEoig');
+(1, 'BEMBIU', '3T7ArfPjnv'),
+(2, '2021310028', 'VIfEVrMkX1');
 
 --
 -- Indexes for dumped tables

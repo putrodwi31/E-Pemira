@@ -37,27 +37,31 @@
 
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="<?= base_url('old_assets/'); ?>vendors/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/animate.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/loader_main.css">
 
     <!-- Favicon  -->
     <link rel="icon" href="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" />
 </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/62910c46b0d10b6f3e74656b/1g439ft58';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
 
 <body data-spy="scroll" data-target=".fixed-top">
+    <div id="spinner">
+        <div class=" table">
+            <div class="table-cell">
+                <div class="logo-load visibility-hidden animated flipInY">
+                    <img src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" class="" width="150px" alt="" />
+                </div>
+
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">
         <div class="container">
@@ -75,7 +79,7 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="<?= base_url(); ?>"> Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="#home"> Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#ketua"> Ketua </a>
@@ -100,41 +104,43 @@
     </nav>
     <!-- end of navbar -->
     <!-- end of navigation -->
-
-    <!-- Header -->
-    <div class="header">
-        <div class="ocean">
-            <div class="wave"></div>
-            <div class="wave"></div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h1 class="h1-large">
-                            PEMIRA BADAN <br> EKSEKUTIF MAHASISWA <br> UNIVERSITAS BINA INSANI </h2>
-                        </h1>
-                        <p class="p-large">
-                            Pemira adalah kegiatan pemilihan presiden mahasiswa BEM BiU dan Badan Perwakilan Mahasiswa (BPM) sebagai wujud demokrasi di kampus Universitas Bina Insani.
-                        </p>
-                        <a class="btn-solid-lg page-scroll" href="#vote"> Go to vote </a>
-                    </div>
-                    <!-- end of text-container -->
-                </div>
-                <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="image-container">
-                        <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" alt="alternative" style="text-shadow: 2px 2px 4px #000000;;" />
-                    </div>
-                    <!-- end of image-container -->
-                </div>
-                <!-- end of col -->
+    <section id="home">
+        <!-- Header -->
+        <div class="header">
+            <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
             </div>
-            <!-- end of row -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1 class="h1-large">
+                                PEMIRA BADAN <br> EKSEKUTIF MAHASISWA <br> UNIVERSITAS BINA INSANI </h2>
+                            </h1>
+                            <p class="p-large">
+                                Pemira adalah kegiatan pemilihan presiden mahasiswa BEM BiU dan Dewan Perwakilan Mahasiswa (DPM) sebagai wujud demokrasi di kampus Universitas Bina Insani.
+                            </p>
+                            <a class="btn-solid-lg page-scroll" href="#vote"> Go to vote </a>
+                        </div>
+                        <!-- end of text-container -->
+                    </div>
+                    <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" alt="alternative" style="text-shadow: 2px 2px 4px #000000;;" />
+                        </div>
+                        <!-- end of image-container -->
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
         </div>
-        <!-- end of container -->
-    </div>
-    <!-- end of header -->
+        <!-- end of header -->
+    </section>
+
     </div>
     <!-- end of col -->
     </div>
@@ -325,13 +331,6 @@
         <!-- end of row -->
     </div>
 
-    <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-    <!-- end of details lightbox -->
-
-    <!-- end of basic-3 -->
-    <!-- end of details 2 -->
-    <!-- Lightbox 2 -->
     <div id="details-lightbox-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
         <div class="row">
             <button title="Close (Esc)" type="button" class="mfp-close x-button">
@@ -378,14 +377,7 @@
         </div>
         <!-- end of row -->
     </div>
-    <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-    <!-- end of details lightbox -->
 
-
-    <!-- Features -->
-
-    <!-- Statistics -->
     <div class="counter">
 
     </div>
@@ -420,8 +412,6 @@
     </div>
     <!-- end of form-1 -->
     <!-- end of contact -->
-
-
 
     <!-- Footer -->
     <div class="footer bg-gray">
@@ -459,7 +449,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p class="p-small">
-                        Copyright © <a class="no-line" href="#your-link">BEM BINA INSANI</a>
+                        Copyright © 2023 <a class="no-line" href=""><b>BEM BINA INSANI</b></a>
                     </p>
                 </div>
                 <!-- end of col -->
@@ -469,13 +459,36 @@
         </div>
         <!-- enf of row -->
     </div>
-    <!-- end of container -->
     </div>
-    <!-- end of copyright -->
-    <!-- end of copyright -->
-
+    <script>
+        const loader = document.getElementById("spinner");
+        window.onload = function() {
+            setTimeout(function() {
+                // loader.style.opacity = "0";
+                setTimeout(function() {
+                    loader.style.visibility = "hidden";
+                }, 500);
+                $('#spinner').addClass("animated fadeOut");
+            }, 2000);
+        }
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/62910c46b0d10b6f3e74656b/1g439ft58';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
     <!-- Scripts -->
-    <script src="<?= base_url('old_assets/'); ?>vendors/js/jquery.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/css/jquery.min.js"></script>
     <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="<?= base_url('old_assets/'); ?>vendors/js/bootstrap.min.js"></script>
     <!-- Bootstrap framework -->
@@ -487,11 +500,12 @@
     <!-- Magnific Popup for lightboxes -->
     <script src="<?= base_url('old_assets/'); ?>vendors/js/scripts.js"></script>
 
+    <script type="text/javascript" src="<?= base_url('assets'); ?>/css/jquery.appear.min.js"></script>
     <!--=============== SWIPER JS ===============-->
     <script src="<?= base_url('old_assets/'); ?>vendors/js/swiper-bundle.min.js"></script>
     <!--=============== MAIN JS ===============-->
     <script src="<?= base_url('old_assets/'); ?>vendors/js/main.js"></script>
-    <!-- Custom scripts -->
+
 </body>
 
 </html>
