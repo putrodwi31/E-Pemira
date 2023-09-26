@@ -49,7 +49,7 @@
         <div class=" table">
             <div class="table-cell">
                 <div class="logo-load visibility-hidden animated flipInY">
-                    <img src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" class="" width="150px" alt="" />
+                    <img src="<?= base_url('old_assets/'); ?>vendors/images/KLOGO.png" class="" width="300px" alt="" />
                 </div>
 
                 <div class="spinner">
@@ -128,7 +128,7 @@
                     <!-- end of col -->
                     <div class="col-lg-6">
                         <div class="image-container">
-                            <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" alt="alternative" style="text-shadow: 2px 2px 4px #000000;;" />
+                            <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/KLOGO.png" alt="alternative" style="text-shadow: 2px 2px 4px #000000;;" />
                         </div>
                         <!-- end of image-container -->
                     </div>
@@ -163,30 +163,30 @@
                                         <div class="carousel-item active">
                                             <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
                                                 <div class="text-container">
-                                                    <h3 class="about__title"> Data Diri Ketua </h3>
+                                                    <h3 class="about__title"> Data Diri Presiden Mahasiswa </h3>
                                                     <p class="p-large">
-                                                    <p class="about__description">Muhammad Aldisyah Rahman</p>
-                                                    <p class="about__description">Sistem Informasi 19A</p>
-                                                    <p class="about__description">21 Tahun</p>
-                                                    <p class="about__description">2019320021</p>
+                                                    <p class="about__description">Bagas Adji Priantomo</p>
+                                                    <p class="about__description">Teknik Informatika 20A</p>
+                                                    <p class="about__description">22 Tahun</p>
+                                                    <p class="about__description">2020310093</p>
                                                     </p>
-                                                    <img src="<?= base_url('old_assets/'); ?>vendors/images/ka-aldis.jpg" alt="ketua 2021/2022" />
-                                                    <h6 class="about__title">Muhammad Aldisyah Rahman, Ketua BEM 2021-2022</h6>
+                                                    <img src="<?= base_url('old_assets/'); ?>vendors/images/Bagas.png" alt="Presiden Mahasiswa 2022/2023" />
+                                                    <h6 class="about__title">Bagas Adji Priantomo, Presiden Mahasiswa 2022-2023</h6>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="carousel-item">
                                             <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
                                                 <div class="text-container">
-                                                    <h3 class="about__title"> Data Diri Wakil Ketua </h3>
+                                                    <h3 class="about__title"> Data Diri Wakil Presiden Mahasiswa </h3>
                                                     <p class="p-large">
-                                                    <p class="about__description">Raden Fitria Dwiyani Putri</p>
-                                                    <p class="about__description">Akuntansi D3</p>
+                                                    <p class="about__description">Leliana Eka Fauziah</p>
+                                                    <p class="about__description">Teknik Informatika 20A</p>
                                                     <p class="about__description">22 Tahun</p>
-                                                    <p class="about__description">2019210030</p>
+                                                    <p class="about__description">2020310090</p>
                                                     </p>
-                                                    <img src="<?= base_url('old_assets/'); ?>vendors/images/ka-raden.jpeg" alt="wakil ketua 2021/2022" />
-                                                    <h6 class="about__title">Raden Fitria Dwiyani Putri, Wakil Ketua BEM 2021-2022</h6>
+                                                    <img src="<?= base_url('old_assets/'); ?>vendors/images/Leli.png" alt="wakil Presiden Mahasiswa 2022/2023" />
+                                                    <h6 class="about__title">Leliana Eka Fauziah, Wakil Presiden Mahasiswa 2022-2023</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -222,23 +222,24 @@
                         <div class="paslon__group">
 
                             <div class="paslon__img-overlay">
-                                <img src="<?= base_url('old_assets/'); ?>vendors/images/paslon-1-1.jpg" alt="" class="paslon__img-one">
+                                <img src="<?= base_url('old_assets/'); ?>vendors/images/CALON1.PNG" alt="" class="paslon__img-one">
                             </div>
                         </div>
 
                         <div class="home__data">
                             <h3 class="home__subtitle">PASLON 1</h3>
-                            <h2 class="home__title">Bagas Adji Priantomo &<br> Leliana Eka Fauziah</h2>
-                            <p class="home__description">Menjadikan BEM Bina Insani University sebaagai adah bagi mahasiswa untuk mengembangkan segala potensi yang ada sehingga terbentuk mahasiswa yang cerdas,kreatif,berprestasi,dan aktif dalam menjaga nama baik universitas yang unggul ditingkat nasional.</p>
+                            <h3 class="home__title">Rahmat Adi Raharja &<br> Siti Rohmah</h3>
+                            <p class="home__description">Mendorong hubungan kolaboratif antar mahasiswa serta berperan aktif dalam meningkatkan
+                                kehidupan mahasiswa.</p>
 
                             <div class="about__details">
                                 <p class="about__details-description">
                                     <i class="fas fa-square about__details-icon"></i>
-                                    1. Memfasilitasi ruang kreasi dan inovasi untuk seluruh kegiatan akademik non akademik mahasiswa
+                                    1. Menyediakan sarana yang integratif untuk mewadahi aspirasi, inspirasi dan kreativitas seluruh mahasiswa Bina Insani agar menjadi mahasiswa yang unggul di tingkat nasional maupun internasional.
                                 </p>
                                 <p class="about__details-description">
                                     <i class="fas fa-square about__details-icon"></i>
-                                    2. Meningkatkan pelayanan aspirasi dan advokasi yang responsif dan solutif bagi mahasiswa dan universitas
+                                    2. Menciptakan advokasi dan pelayanan mahasiswa sesuai kebutuhan yang diprioritaskan.
                                 </p>
                             </div>
 
@@ -255,24 +256,23 @@
                         <div class="paslon__group">
 
                             <div class="paslon__img-overlay">
-                                <img src="<?= base_url('old_assets/'); ?>vendors/images/paslon-2-2.jpg" alt="" class="paslon__img-one">
+                                <img src="<?= base_url('old_assets/'); ?>vendors/images/CALON2.png" alt="" class="paslon__img-one">
                             </div>
                         </div>
 
                         <div class="home__data">
                             <h3 class="home__subtitle">PASLON 2</h3>
-                            <h1 class="home__title">Iqbal Maulana Rozak &<br> Jundi Al Hafidz</h1>
-                            <p class="home__description">Menjadi katalisator atau wadah inkubasi berkembang bagi mahasiswa agar terciptanya mahasiswa yang adaktif,kreatif dan solutif.
-                            </p>
+                            <h3 class="home__title">Shafa Nanda Zasqia &<br> Azzuhra Narandra Karim</h3>
+                            <p class="home__description">Menghasilkan dampak yang nyata dan dekat dengan seluruh mahasiswa.</p>
 
                             <div class="about__details">
                                 <p class="about__details-description">
                                     <i class="fas fa-square about__details-icon"></i>
-                                    1. Menjadikan BEM sebagai ladang dalam mengembangkan minat dan bakat mahasiswa.
+                                    1. Menghasilkan sinergis dengan beragam elemen demi tercapainya manfaat bagi seluruh mahasiswa.
                                 </p>
                                 <p class="about__details-description">
                                     <i class="fas fa-square about__details-icon"></i>
-                                    2. Menciptakan dan mengembangkan nilai pengabdian serta pelayanan mahasiswa terhadap masyarakat luas.
+                                    2. Mewujudkan sosial, politik dan lingkungan hidup yang strategis dan nyata.
                                 </p>
                             </div>
 
@@ -296,7 +296,7 @@
             </button>
             <div class="col-lg-8">
                 <div class="image-container">
-                    <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/paslon-1-1.jpg" alt="alternative" />
+                    <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/CALON1.png" alt="alternative" />
                 </div>
                 <!-- end of image-container -->
             </div>
@@ -305,21 +305,26 @@
                 <h3>Visi</h3>
                 <hr />
                 <p>
-                    Menjadikan BEM Bina Insani University sebaagai adah bagi mahasiswa untuk mengembangkan segala potensi yang ada sehingga terbentuk mahasiswa yang cerdas,kreatif,berprestasi,dan aktif dalam menjaga nama baik universitas yang unggul ditingkat nasional.
+                    Mendorong hubungan kolaboratif antar mahasiswa serta berperan aktif dalam meningkatkan
+                    kehidupan mahasiswa.
                 </p>
                 <h4> Misi </h4>
                 <ul class="list-unstyled li-space-lg">
                     <li class="media">
                         <i class="fas fa-check"></i>
-                        <div class="media-body">1. Memfasilitasi ruang kreasi dan inovasi untuk seluruh kegiatan akademik non akademik mahasiswa</div>
+                        <div class="media-body">1. Menyediakan sarana yang integratif untuk mewadahi aspirasi, inspirasi dan kreativitas seluruh mahasiswa Bina Insani agar menjadi mahasiswa yang unggul di tingkat nasional maupun internasional.</div>
                     </li>
                     <li class="media">
                         <i class="fas fa-check"></i>
-                        <div class="media-body">2. Meningkatkan pelayanan aspirasi dan advokasi yang responsif dan solutif bagi mahasiswa dan universitas</div>
+                        <div class="media-body">2. Menciptakan advokasi dan pelayanan mahasiswa sesuai kebutuhan yang diprioritaskan.</div>
                     </li>
                     <li class="media">
                         <i class="fas fa-check"></i>
-                        <div class="media-body">3. Mendorong dan membantu mahasiswa memberikan kontribusi positif dan berperan aktif dalam menjaga nama baik universitas</div>
+                        <div class="media-body">3. Meningkatkan sinergisitas antara seluruh civitas akademika Bina Insani dan masyarakat.</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-check"></i>
+                        <div class="media-body">4. Menjalin hubungan yang baik dengan mahasiswa dan organisasi baik di dalam maupun di luar kampus.</div>
                     </li>
                 </ul>
                 <button class="btn-outline-reg mfp-close as-button" type="button">
@@ -338,7 +343,7 @@
             </button>
             <div class="col-lg-8">
                 <div class="image-container">
-                    <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/paslon-2-2.jpg" alt="alternative" />
+                    <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/CALON2.png" alt="alternative" />
                 </div>
                 <!-- end of image-container -->
             </div>
@@ -347,26 +352,22 @@
                 <h3> Visi </h3>
                 <hr />
                 <p>
-                    Menjadi katalisator atau wadah inkubasi berkembang bagi mahasiswa agar terciptanya
-                    mahasiswa yang adaktif,kreatif dan solutif.
+                    Menghasilkan dampak yang nyata dan dekat dengan seluruh mahasiswa.
                 </p>
                 <h4> Misi </h4>
                 <ul class="list-unstyled li-space-lg">
                     <li class="media">
                         <i class="fas fa-check"></i>
-                        <div class="media-body">1. Menjadikan BEM sebagai opsi mediator antara universitas dengan mahasiswa dalam menyuarakan suaranya baik itu dalam berkomunikasi atau berdiskusi, serta menjadi penampung dan pelaksana dari aspirasi mahasiswa.</div>
+                        <div class="media-body">1. Menghasilkan sinergis dengan beragam elemen demi tercapainya manfaat bagi seluruh
+                            mahasiswa.</div>
                     </li>
                     <li class="media">
                         <i class="fas fa-check"></i>
-                        <div class="media-body">2. menjadikan BEM sebagai ladang dalam mengembangkan minat dan bakat mahasiswa.</div>
+                        <div class="media-body">2. Mewujudkan sosial, politik dan lingkungan hidup yang strategis dan nyata.</div>
                     </li>
                     <li class="media">
                         <i class="fas fa-check"></i>
-                        <div class="media-body">3. Menciptakan dan mengembangkan nilai pengabdian serta pelayanan mahasiswa terhadap masyarakat luas.</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-check"></i>
-                        <div class="media-body">4. Menciptakan sistem kerja BEM yang lebih dinamis dan inovatif sebagai upaya optimalisasi peran fungsi dan sumberdaya organisasi dan pengembangan dari BEM terdahulu.</div>
+                        <div class="media-body">3. Berpartisipasi dalam pengembangan potensi minat dan bakat.</div>
                     </li>
                 </ul>
                 <button class="btn-outline-reg mfp-close as-button" type="button">

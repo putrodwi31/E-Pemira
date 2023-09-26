@@ -27,7 +27,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Beranda';
         $data['user'] = $this->db->join('tbl_akses', 'tbl_dpt.nim=tbl_akses.nim', 'INNER')->get_where('tbl_dpt', ['tbl_dpt.nim' => $this->session->userdata('nim')])->row_array();
-        $data['paslon'] = $this->db->order_by('id', 'DESC')->get('data_paslon')->result_array();
+        $data['paslon'] = $this->db->order_by('no_urut', 'ASC')->get('data_paslon')->result_array();
         $this->form_validation->set_rules('nomor_paslon', 'Pilihan', 'required|trim', ['required' => '%s wajib diisi']);
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);

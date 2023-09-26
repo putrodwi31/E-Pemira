@@ -62,7 +62,7 @@
         <div class=" table">
             <div class="table-cell">
                 <div class="logo-load visibility-hidden animated flipInY">
-                    <img src="<?= base_url('old_assets/'); ?>vendors/images/klogo2.png" class="" width="150px" alt="" />
+                    <img src="<?= base_url('old_assets/'); ?>vendors/images/KLOGO.png" class="" width="300px" alt="" />
                 </div>
 
                 <div class="spinner">

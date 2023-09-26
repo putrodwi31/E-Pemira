@@ -9,6 +9,7 @@
                       <div class="card">
                           <div class="card-header">
                               <h4>Upload DPT</h4>
+                              <button class="btn btn-primary" data-toggle="modal" data-target="#tautanModal">Tambah DPT</button>
                           </div>
                           <div class="card-body">
                               <form action="<?= base_url('admin/tambah_dpt'); ?>" method="post" enctype="multipart/form-data">
@@ -22,7 +23,7 @@
                                   </div>
                                   <br>
                                   <div class="form-group" style="margin-top: -30px;">
-                                      <input type="submit" name="upload" class="btn btn-success" value="Tambah">
+                                      <input type="submit" name="upload" class="btn btn-success" value="Upload">
                                   </div>
                                   <br>
                               </form>
@@ -104,4 +105,46 @@
                   </div>
               </div>
           </section>
+      </div>
+      <div class="modal fade" id="tautanModal" tabindex="-1" aria-labelledby="tautanModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="tautanModalLabel">Tambah DPT</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form method="POST" action="<?= base_url('admin/tambah_tdpt'); ?>" class="needs-validation" novalidate="">
+                          <?= $this->session->flashdata('message'); ?>
+                          <div class="form-group">
+                              <label for="nama">Nama<span style="color: red!important;">*</span></label>
+                              <input id="nama" type="text" class="form-control" name="nama" tabindex="1" required autofocus value="<?= set_value('nama'); ?>">
+                              <div class="invalid-feedback">
+                                  Silahkan masukan nama dpt anda
+                              </div>
+                          </div>
+                          <div class="form-group mt-n4">
+                              <label for="nim">NIM<span style="color: red!important;">*</span></label>
+                              <input id="nim" type="number" class="form-control" name="nim" tabindex="1" required autofocus value="<?= set_value('nim'); ?>">
+                              <div class="invalid-feedback">
+                                  Silahkan masukan nim dpt anda
+                              </div>
+                          </div>
+                          <div class="form-group mt-n4">
+                              <label for="email">Email<span style="color: red!important;">*</span></label>
+                              <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus value="<?= set_value('email'); ?>">
+                              <div class="invalid-feedback">
+                                  Silahkan masukan email dpt anda
+                              </div>
+                          </div>
+                  </div>
+                  <div class="modal-footer" style="margin-top: -20px;">
+                      <button type="button" class="btn btn-secondary text-dark" data-dismiss="modal">Tutup</button>
+                      <button type="submit" class="btn btn-primary"><i class="fas fa-link"></i> Tambah DPT</button>
+                  </div>
+                  </form>
+              </div>
+          </div>
       </div>

@@ -34,7 +34,7 @@ class Admin extends CI_Controller
 	public function index()
 	{
 		$data['user'] = $this->db->join('tbl_akses', 'tbl_dpt.nim=tbl_akses.nim', 'INNER')->get_where('tbl_dpt', ['tbl_dpt.nim' => $this->session->userdata('nim')])->row_array();
-		$data['paslon'] = $this->db->order_by('id', 'DESC')->get('data_paslon')->result_array();
+		$data['paslon'] = $this->db->order_by('no_urut', 'ASC')->get('data_paslon')->result_array();
 		$data['title'] = 'Beranda';
 		$this->form_validation->set_rules('nomor_paslon', 'Pilihan', 'required|trim', ['required' => '%s wajib diisi']);
 		if ($this->form_validation->run() == false) {
@@ -210,6 +210,44 @@ class Admin extends CI_Controller
 			$this->load->view('templates/footer', $data);
 		}
 	}
+	public function tambah_tdpt()
+	{
+		$this->form_validation->set_rules('nama', 'Keyword', 'required|trim', ['required' => '%s wajib diisi']);
+		$this->form_validation->set_rules('nim', 'Keyword', 'required|trim', ['required' => '%s wajib diisi']);
+		$this->form_validation->set_rules('email', 'Keyword', 'required|trim', ['required' => '%s wajib diisi']);
+		if ($this->form_validation->run() == false) {
+			$this->session->set_flashdata('toast', "<script>iziToast.error({
+				title: 'Gagal!',
+				message: 'DPT Gagal ditambahkan',
+				position: 'topRight'
+			  });</script>");
+			redirect('admin/dpt');
+		} else {
+			$dataIn = [
+				'nama_mhs' => $this->input->post('nama', true),
+				'nim' => $this->input->post('nim', true),
+				'email' => $this->input->post('email', true),
+				'status' => 'Belum Memilih',
+				'waktu' => '-'
+			];
+			$this->db->insert('tbl_dpt', $dataIn);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('toast', "<script>iziToast.success({
+					title: 'Berhasil!',
+					message: 'DPT berhasil ditambahkan',
+					position: 'topRight'
+				  });</script>");
+				redirect('admin/dpt');
+			} else {
+				$this->session->set_flashdata('toast', "<script>iziToast.error({
+					title: 'Gagal!',
+					message: 'DPT Gagal ditambahkan',
+					position: 'topRight'
+				  });</script>");
+				redirect('admin/dpt');
+			}
+		}
+	}
 	public function tambah_dpt()
 	{
 		$tgl_sekarang = date('YmdHis'); // Ini akan mengambil waktu sekarang dengan format yyyymmddHHiiss
@@ -330,40 +368,51 @@ class Admin extends CI_Controller
 	}
 	public function buat_akses()
 	{
-		$nim = $this->input->post('nim');
-		$kode_akses = $this->input->post('kode_akses');
 
-		$cek = $this->db->query("SELECT * FROM tbl_akses WHERE nim='$nim'")->num_rows();
-		if ($cek > 0) {
+		$this->form_validation->set_rules('nim', 'NIM', 'required|trim', ['required' => '%s wajib diisi']);
+
+		if ($this->form_validation->run() == false) {
 			$this->session->set_flashdata('toast', "<script>iziToast.error({
-				title: 'NIM Sudah terdaftar!',
-				message: 'NIM sudah memilik akses!',
+				title: 'Gagal!',
+				message: 'Silahkan filter data terlebih dahulu',
 				position: 'topRight'
 			  });</script>");
 			redirect('admin/akses');
 		} else {
+			$nim = $this->input->post('nim');
+			$kode_akses = $this->input->post('kode_akses');
 
-			$mail = new PHPMailer(true);
-			$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      			//Enable verbose debug output
-			$mail->isSMTP();                                            			//Send using SMTP
-			$mail->Host       = 'smtp.gmail.com';                     				//Set the SMTP server to send through
-			$mail->SMTPAuth   = true;                                   			//Enable SMTP authentication
-			$mail->Username   = $_ENV['SMTP_EMAIL'];                	     		//SMTP username
-			$mail->Password   = $_ENV['SMTP_PASS'];                               	//SMTP password
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            			//Enable implicit TLS encryption
-			$mail->Port       = 465; 												//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-			$this->db->query("INSERT INTO tbl_akses(nim, kode_akses, level) VALUES ('$nim','$kode_akses','user')");
-			if ($this->db->affected_rows() > 0) {
-				$query = $this->db->query("SELECT email, kode_akses FROM tbl_dpt INNER JOIN tbl_akses ON tbl_dpt.nim=tbl_akses.nim WHERE tbl_dpt.nim='$nim'")->row_array();
-				$email = $query['email'];
-				$kode_akses2 = $query['kode_akses'];
+			$cek = $this->db->query("SELECT * FROM tbl_akses WHERE nim='$nim'")->num_rows();
+			if ($cek > 0) {
+				$this->session->set_flashdata('toast', "<script>iziToast.error({
+				title: 'NIM Sudah terdaftar!',
+				message: 'NIM sudah memilik akses!',
+				position: 'topRight'
+			  });</script>");
+				redirect('admin/akses');
+			} else {
 
-				$mail->setFrom($_ENV['SMTP_EMAIL'], 'BEM BIU'); 					//Add a recipient
-				$mail->addAddress($email);											//Set email receipt
-				$mail->isHTML(true);                                  				//Set email format to HTML
+				$mail = new PHPMailer(true);
+				$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      			//Enable verbose debug output
+				$mail->isSMTP();                                            			//Send using SMTP
+				$mail->Host       = $_ENV['SMTP_HOST'];                     				//Set the SMTP server to send through
+				$mail->SMTPAuth   = true;                                   			//Enable SMTP authentication
+				$mail->Username   = $_ENV['SMTP_EMAIL'];                	     		//SMTP username
+				$mail->Password   = $_ENV['SMTP_PASS'];                               	//SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            			//Enable implicit TLS encryption
+				$mail->Port       = intval($_ENV['SMTP_PORT']); 												//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+				$this->db->query("INSERT INTO tbl_akses(nim, kode_akses, level) VALUES ('$nim','$kode_akses','user')");
+				if ($this->db->affected_rows() > 0) {
+					$query = $this->db->query("SELECT email, kode_akses FROM tbl_dpt INNER JOIN tbl_akses ON tbl_dpt.nim=tbl_akses.nim WHERE tbl_dpt.nim='$nim'")->row_array();
+					$email = $query['email'];
+					$kode_akses2 = $query['kode_akses'];
 
-				$mail->Subject = "BEM BIU (KODE AKSES - E-PEMIRA)";
-				$body2 = '<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+					$mail->setFrom($_ENV['SMTP_EMAIL'], 'BEM BIU'); 					//Add a recipient
+					$mail->addAddress($email);											//Set email receipt
+					$mail->isHTML(true);                                  				//Set email format to HTML
+
+					$mail->Subject = "BEM BIU (KODE AKSES - E-PEMIRA)";
+					$body2 = '<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
 				<div style="margin:50px auto;width:70%;padding:20px 0">
 				  <div style="border-bottom:1px solid #eee">
 					<a href="" style="font-size:1.4em;color: #093D77;text-decoration:none;font-weight:600">E-Pemira</a>
@@ -381,7 +430,7 @@ class Admin extends CI_Controller
 				  </div>
 				</div>
 			  </div>';
-				$body1 = '<br><b>Hi BiU Friends</b></br>
+					$body1 = '<br><b>Hi BiU Friends</b></br>
  
 			  <br>Ini kode aktivasi email kamu ya!<br>
 			  <br>jangan sampai lupa apalagi tertinggal.<br>
@@ -391,29 +440,30 @@ class Admin extends CI_Controller
 			  <br>Kode Akses : <b>' . $kode_akses2 . '</b><br>
 
 			  <br>Terimakasih!<br>';
-				$mail->Body    = "$body2";
-				if ($mail->send()) {
-					$this->session->set_flashdata('toast', "<script>iziToast.success({
+					$mail->Body    = "$body2";
+					if ($mail->send()) {
+						$this->session->set_flashdata('toast', "<script>iziToast.success({
 						title: 'Email berhasil terkirim!',
 						message: 'Email kode akses terkirim ke $email!',
 						position: 'topRight'
 					  });</script>");
-					redirect('admin/akses');
-				} else {
-					$this->session->set_flashdata('toast', "<script>iziToast.success({
+						redirect('admin/akses');
+					} else {
+						$this->session->set_flashdata('toast', "<script>iziToast.success({
 						title: 'Gagal mengirim Email!',
 						message: 'Silahkan cek kembali email $email!',
 						position: 'topRight'
 					  });</script>");
-					redirect('admin/akses');
-				}
-			} else {
-				$this->session->set_flashdata('toast', "<script>iziToast.error({
+						redirect('admin/akses');
+					}
+				} else {
+					$this->session->set_flashdata('toast', "<script>iziToast.error({
 					title: 'Gagal Input!',
 					message: 'gagal melakukan input ke database!',
 					position: 'topRight'
 				  });</script>");
-				redirect('admin/akses');
+					redirect('admin/akses');
+				}
 			}
 		}
 	}
