@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jul 2023 pada 07.05
+-- Waktu pembuatan: 27 Sep 2023 pada 08.43
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -38,7 +38,9 @@ CREATE TABLE `attempt_count` (
 --
 
 INSERT INTO `attempt_count` (`id`, `time_count`, `ip_address`) VALUES
-(33, 1690356201, '::1');
+(33, 1690356201, '::1'),
+(34, 1690772924, '::1'),
+(35, 1690772941, '::1');
 
 -- --------------------------------------------------------
 
@@ -64,8 +66,8 @@ CREATE TABLE `data_paslon` (
 --
 
 INSERT INTO `data_paslon` (`id`, `nim_ketua`, `nm_paslon_ketua`, `gambar1`, `nim_wakil`, `nm_paslon_wakil`, `gambar2`, `no_urut`, `visi`, `misi`) VALUES
-(1, '121212', 'Bagas Adji Priantomo', 'paslon-ketua1.jpg', '565656', 'Leliana Eka Fauziah', 'paslon-wakil1.jpg', 1, 'Menjadikan BEM Bina Insani University sebaagai adah bagi mahasiswa untuk mengembangkan segala potensi yang ada sehingga terbentuk mahasiswa yang cerdas,kreatif,berprestasi,dan aktif dalam menjaga nama baik universitas yang unggul ditingkat nasional.', '1. Memfasilitasi ruang kreasi dan inovasi untuk seluruh kegiatan akademik non akademik mahasiswa.<br>\r\n2. Meningkatkan pelayanan aspirasi dan advokasi yang responsif dan solutif bagi mahasiswa dan universitas.'),
-(2, '22121', 'Iqbal Maulana Rozak', 'paslon-ketua2.jpg', '21012', 'Jundi Al Hafidz', 'paslon-wakil2.jpg', 2, 'Menjadi katalisator atau wadah inkubasi berkembang bagi mahasiswa agar terciptanya mahasiswa yang adaktif,kreatif dan solutif.', '1. Menjadikan BEM sebagai ladang dalam mengembangkan minat dan bakat mahasiswa. <br> 2. Menciptakan dan mengembangkan nilai pengabdian serta pelayanan mahasiswa terhadap masyarakat luas.');
+(37, '202131007', 'Rahmat Adi Raharja', 'Ketua-1.png', '202133000', 'Siti Rohmah', 'Wakil-1.png', 1, 'Mendorong hubungan kolaboratif antar mahasiswa serta berperan aktif dalam meningkatkan kehidupan mahasiswa.', '1. Menyediakan sarana yang integratif untuk mewadahi aspirasi, inspirasi dan kreativitas seluruh mahasiswa Bina Insani agar menjadi mahasiswa yang unggul di tingkat nasional maupun internasional. <br>\r\n2. Menciptakan advokasi dan pelayanan mahasiswa sesuai kebutuhan yang diprioritaskan. <br>\r\n3. Meningkatkan sinergisitas antara seluruh civitas akademika Bina Insani dan masyarakat. <br>\r\n4.  menjalin hubungan yang baik dengan mahasiswa dan organisasi baik di dalam maupun di luar kampus. <br>'),
+(38, '202131003', 'Shafa Nanda Zasqia', 'Ketua-2.png', '202121001', 'Azzuhra Narandra Karim', 'Wakil-2.png', 2, 'Menghasilkan dampak yang nyata dan dekat dengan seluruh mahasiswa.', '1. Menghasilkan sinergis dengan beragam elemen demi tercapainya manfaat bagi seluruh mahasiswa.<br>\r\n2. Mewujudkan sosial, politik dan lingkungan hidup yang strategis dan nyata.<br>\r\n3. Berpartisipasi dalam pengembangan potensi minat dan bakat.');
 
 -- --------------------------------------------------------
 
@@ -85,8 +87,8 @@ CREATE TABLE `tbl_akses` (
 
 INSERT INTO `tbl_akses` (`nim`, `kode_akses`, `level`) VALUES
 ('2019320021', '5LCM6L', 'user'),
-('2021310028', '45X1ZG', 'user'),
-('BEMBIU', 'QWERTY', 'admin');
+('2021310028', 'AHQEC6', 'user'),
+('BEMBIU', '@)@#PE', 'admin');
 
 -- --------------------------------------------------------
 
@@ -107,9 +109,10 @@ CREATE TABLE `tbl_dpt` (
 --
 
 INSERT INTO `tbl_dpt` (`nim`, `nama_mhs`, `status`, `email`, `waktu`) VALUES
-('2019320021', 'Muhammad Aldisyah Rahman', 'Belum Memilih', 'xbhscbhavd@gmail.com', '-'),
+('2019320021', 'Muhammad Aldisyah Rahman', 'Belum Memilih', 'cek123@gmail.com', '-'),
+('2021310021', 'Farhan Farezi', 'Belum Memilih', 'farhanfarezi15@gmail.com', '-'),
 ('2021310028', 'Putro Dwi Mulyo', 'Belum Memilih', 'putrodwi31@gmail.com', '15:41:55pm'),
-('BEMBIU', 'Administrator', 'Belum Memilih', '', '09:43:35 PM, 26 July 2023');
+('BEMBIU', 'Administrator', 'Belum Memilih', '', '11:37:45 AM, 25 September 2023');
 
 -- --------------------------------------------------------
 
@@ -178,8 +181,8 @@ CREATE TABLE `user_token` (
 --
 
 INSERT INTO `user_token` (`id`, `nim`, `token`) VALUES
-(1, 'BEMBIU', '3T7ArfPjnv'),
-(2, '2021310028', 'VIfEVrMkX1');
+(1, 'BEMBIU', 'Ss27gRBHZh'),
+(2, '2021310028', 'mU4ffYEvF9');
 
 --
 -- Indexes for dumped tables
@@ -241,13 +244,13 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT untuk tabel `attempt_count`
 --
 ALTER TABLE `attempt_count`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_paslon`
 --
 ALTER TABLE `data_paslon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`

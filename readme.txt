@@ -8,6 +8,8 @@ DB_DATABASE=""
 DB_DRIVER=""
 
 # Koneksi SMTP Gmail
+SMTP_HOST=""
+SMTP_PORT=
 SMTP_EMAIL=""
 SMTP_PASS=""
 
