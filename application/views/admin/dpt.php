@@ -17,7 +17,7 @@
                                       <br>
                                       <label><b>Format File .XLSX</b></label>
                                       <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="customFile" name="file_dpt">
+                                          <input type="file" class="custom-file-input" id="customFile" name="file_dpt" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required>
                                           <label class="custom-file-label" for="customFile">Pilih File</label>
                                       </div>
                                   </div>
@@ -53,14 +53,21 @@
                                           </thead>
                                           <tbody>
                                               <?php
+
                                                 foreach ($dptn as $dn) {
+                                                    $cek = $this->db->get_where('tbl_akses', ['nim' => $dn['nim']])->num_rows();
                                                 ?>
                                                   <tr>
                                                       <td><?php echo $dn['nim']; ?></td>
                                                       <td style="text-transform: capitalize;"><?php echo $dn['nama_mhs']; ?></td>
                                                       <td><span class="badge badge-warning"><b><?php echo $dn['status']; ?></b></span></td>
                                                       <td><?php echo $dn['email']; ?></td>
-                                                      <td><a class="btn btn-danger btn-circle text-white" id="hapusPaslon<?= $dn['nim']; ?>" onclick="getDel(<?= $dn['nim']; ?>)" data-link="<?= base_url() . 'admin/hapus_dpt/' . $dn['nim']; ?>" data-ntipe='DPT dengan NIM'>Hapus</a>
+                                                      <td>
+                                                          <a href="<?= base_url('admin/ubah_dpt/') . $dn['nim']; ?>" class="btn btn-primary btn-circle text-white">Ubah</a>
+                                                          <a class="btn btn-danger btn-circle text-white" id="hapusPaslon<?= $dn['nim']; ?>" onclick="getDel(<?= $dn['nim']; ?>)" data-link="<?= base_url() . 'admin/hapus_dpt/' . $dn['nim']; ?>" data-ntipe='DPT dengan NIM'>Hapus</a>
+
+                                                          <a class="btn btn-warning btn-circle text-white <?= $cek > 0 ? '' : 'disabled'; ?>" id="hapusAksesPaslon<?= $dn['nim']; ?>" onclick="getDelAkses(<?= $dn['nim']; ?>)" data-link="<?= base_url() . 'admin/hapus_aksesdpt/' . $dn['nim']; ?>" data-ntipe='DPT dengan NIM'>Hapus Akses</a>
+
                                                       </td>
                                                   </tr>
                                               <?php } ?>

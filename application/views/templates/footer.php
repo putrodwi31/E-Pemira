@@ -61,6 +61,21 @@
         });
     }
 
+    function getDelAkses(id) {
+        const getDel = document.getElementById("hapusAksesPaslon" + id)
+        swal({
+            title: 'Apakah anda yakin?',
+            text: 'Apakah anda ingin menghapus akses ' + getDel.dataset.ntipe + ' ' + id + ' ?',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location.replace(getDel.dataset.link)
+            }
+        });
+    }
+
     $('.custom-file-input').on('change', function() {
         let filename = $(this).val().split('\\').pop();
         $(this).next('.custom-file-label').addClass("selected").html(filename);

@@ -128,7 +128,7 @@
                     <!-- end of col -->
                     <div class="col-lg-6">
                         <div class="image-container">
-                            <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/KLOGO.png" alt="alternative" style="text-shadow: 2px 2px 4px #000000;;" />
+                            <img class="img-fluid" src="<?= base_url('old_assets/'); ?>vendors/images/GLOGO.png" alt="alternative" style="text-shadow: 2px 2px 4px #000000;" />
                         </div>
                         <!-- end of image-container -->
                     </div>

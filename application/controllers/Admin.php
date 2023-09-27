@@ -305,13 +305,93 @@ class Admin extends CI_Controller
 	}
 	public function hapus_dpt($nim)
 	{
+
 		$this->db->query("DELETE FROM tbl_dpt WHERE nim='$nim'");
-		$this->session->set_flashdata('toast', "<script>iziToast.success({
-			title: 'Berhasil!',
-			message: 'Data DPT $nim berhasil dihapus',
-			position: 'topRight'
-		  });</script>");
-		redirect('admin/dpt');
+		$cek = $this->db->get_where('tbl_akses', ['nim' => $nim]);
+		if ($cek->num_rows() > 0) {
+			$this->db->where('nim', $nim)->delete('tbl_akses');
+		}
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('toast', "<script>iziToast.success({
+				title: 'Berhasil!',
+				message: 'Data DPT $nim berhasil dihapus',
+				position: 'topRight'
+			  });</script>");
+			redirect('admin/dpt');
+		} else {
+			$this->session->set_flashdata('toast', "<script>iziToast.error({
+				title: 'Gagal!',
+				message: 'Data DPT $nim gagal dihapus',
+				position: 'topRight'
+			  });</script>");
+			redirect('admin/dpt');
+		}
+	}
+	public function ubah_dpt($nim)
+	{
+		$data['user'] = $this->db->join('tbl_akses', 'tbl_dpt.nim=tbl_akses.nim', 'INNER')->get_where('tbl_dpt', ['tbl_dpt.nim' => $this->session->userdata('nim')])->row_array();
+		$data['dpt'] = $this->db->get_where('tbl_dpt', ['nim' => $nim])->row_array();
+		$data['title'] = 'Ubah DPT';
+		$this->form_validation->set_rules('nama', 'Pilihan', 'required|trim', ['required' => '%s wajib diisi']);
+		$this->form_validation->set_rules('email', 'Pilihan', 'required|trim', ['required' => '%s wajib diisi']);
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('admin/ubah_dpt', $data);
+			$this->load->view('templates/footer', $data);
+		} else {
+			$nama = $this->input->post('nama', true);
+			$dataIn = [
+				'nama_mhs' => $this->input->post('nama', true),
+				'email' => $this->input->post('email', true)
+			];
+			$this->db->where('nim', $nim)->update('tbl_dpt', $dataIn);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('toast', "<script>iziToast.success({
+					title: 'Berhasil!',
+					message: 'DPT $nama berhasil diubah',
+					position: 'topRight'
+				  });</script>");
+				redirect('admin/dpt');
+			} else {
+				$this->session->set_flashdata('toast', "<script>iziToast.error({
+					title: 'Gagal!',
+					message: 'DPT $nama Gagal diubah',
+					position: 'topRight'
+				  });</script>");
+				redirect('admin/dpt');
+			}
+		}
+	}
+	public function hapus_aksesdpt($nim)
+	{
+		$cek = $this->db->get_where('tbl_akses', ['nim' => $nim]);
+		if ($cek->num_rows() > 0) {
+			$this->db->where('nim', $nim)->delete('tbl_akses');
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('toast', "<script>iziToast.success({
+					title: 'Berhasil!',
+					message: 'Data Akses DPT $nim berhasil dihapus',
+					position: 'topRight'
+				  });</script>");
+				redirect('admin/dpt');
+			} else {
+				$this->session->set_flashdata('toast', "<script>iziToast.error({
+					title: 'Gagal!',
+					message: 'Data Akses DPT $nim Gagal dihapus',
+					position: 'topRight'
+				  });</script>");
+				redirect('admin/dpt');
+			}
+		} else {
+			$this->session->set_flashdata('toast', "<script>iziToast.error({
+				title: 'Gagal!',
+				message: 'Data DPT $nim belum memiliki akses',
+				position: 'topRight'
+			  });</script>");
+			redirect('admin/dpt');
+		}
 	}
 	public function hasil()
 	{
